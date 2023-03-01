@@ -1,0 +1,25 @@
+languageCode = "en"
+languageName = "English"
+displayName = "EN"
+isoCode = "en"
+weight = 1
+rtl = false
+
+title = "JoshuaFlores.rocks"
+logo = "img/logo.png"
+description = "Portfolio for Joshua Flores"
+copyright = "Copy, _right?_ :thinking_face:"
+
+dateFormat = "January 1 2006"
+
+[author]
+  name = "Joshua Flores"
+  image = "img/selfie.jpg"
+  headline = "User Experience Designer and Web Developer"
+  bio = "User Experience Designer and Web Developer"
+  links = [
+     { email = "mailto:hello@your_domain.com" },
+     { github = "https://github.com/joshua-flores" },
+     { linkedin = "https://www.linkedin.com/in/joshua-flores-18b90516b/" },
+     { youtube = "https://www.youtube.com/@joshlearnspiano2928" },
+  ]
