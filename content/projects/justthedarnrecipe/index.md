@@ -1,11 +1,12 @@
 ---
 title: "Just the Darn Recipe"
-date: 2020-08-08
+date: 2020-10-01
 draft: false
 description: "Learn how to build Blowfish manually."
 slug: "justthedarnrecipe"
 tags: ["Gatsby", "React", "Material UI"]
-externalUrl: "https://justthedarnrecipe.com"
+externalLink: "https://justthedarnrecipe.com"
+githubLink: "https://github.com/Joshua-Flores/just-the-darn-recipe"
 ---
 
 ## About

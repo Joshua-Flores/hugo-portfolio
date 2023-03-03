@@ -23,9 +23,15 @@
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
     </div>
-    {{ if .Params.externalUrl }} 
-      <a href={{ .Params.externalUrl }} target="_blank" rel="noopener"><button class="bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded">View Project</button></a>
+    <div class="flex gap-2">
+   
+    {{ if .Params.githubLink }}
+      <a href={{ .Params.githubLink }} target="_blank" rel="noopener"><button class="bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 rounded">Github</button></a>
     {{ end }}
+    {{ if .Params.externalLink }} 
+    <a href={{ .Params.externalLink }} target="_blank" rel="noopener"><button class="flex  items-center  gap-2 bg-primary-600 border-primary-600  hover:bg-primary-700 hover:border-primary-700 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border rounded">View Project {{ partial "icon.html" "arrow-outward" }}</button></a>
+  {{ end }}
+  </div>
   </header>
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     {{ if and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
