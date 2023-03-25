@@ -1328,9 +1328,24 @@ select {
   margin-bottom: 0px;
 }
 
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .\!mb-0 {
@@ -1387,6 +1402,10 @@ select {
 
 .mb-3 {
   margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .mb-5 {
@@ -1711,6 +1730,19 @@ select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.break-before-column {
+  -moz-column-break-before: column;
+       break-before: column;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -2350,16 +2382,16 @@ select {
   opacity: 0;
 }
 
+.opacity-10 {
+  opacity: 0.1;
+}
+
 .opacity-30 {
   opacity: 0.3;
 }
 
 .opacity-60 {
   opacity: 0.6;
-}
-
-.opacity-70 {
-  opacity: 0.7;
 }
 
 .mix-blend-normal {
@@ -4296,6 +4328,11 @@ body:has(#menu-controller:checked) {
   background-color: rgba(var(--color-neutral-800), 0.5);
 }
 
+.dark .dark\:bg-neutral-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--color-neutral-900), var(--tw-bg-opacity));
+}
+
 .dark .dark\:bg-neutral-900\/50 {
   background-color: rgba(var(--color-neutral-900), 0.5);
 }
@@ -4308,6 +4345,11 @@ body:has(#menu-controller:checked) {
 .dark .dark\:bg-primary-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(143 174 224 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-primary-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(40 81 146 / var(--tw-bg-opacity));
 }
 
 .dark .dark\:bg-primary-800 {
@@ -4326,6 +4368,12 @@ body:has(#menu-controller:checked) {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.dark .dark\:from-neutral-900 {
+  --tw-gradient-from: rgba(var(--color-neutral-900), 1);
+  --tw-gradient-to: rgba(var(--color-neutral-900), 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .dark .dark\:from-primary-600 {
   --tw-gradient-from: #3061AF;
   --tw-gradient-to: rgb(48 97 175 / 0);
@@ -4334,6 +4382,10 @@ body:has(#menu-controller:checked) {
 
 .dark .dark\:to-neutral-800 {
   --tw-gradient-to: rgba(var(--color-neutral-800), 1);
+}
+
+.dark .dark\:to-neutral-900 {
+  --tw-gradient-to: rgba(var(--color-neutral-900), 1);
 }
 
 .dark .dark\:to-secondary-800 {
@@ -4703,6 +4755,10 @@ body:has(#menu-controller:checked) {
   .lg\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+
+  .lg\:pb-16 {
+    padding-bottom: 4rem;
   }
 
   [dir="ltr"] .ltr\:lg\:pl-8 {

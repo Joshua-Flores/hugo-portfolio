@@ -1,137 +1,196 @@
 <article class="max-w-full prose dark:prose-invert">
-    <div class="relative">
-        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
-        <div class="mx-auto max-w-7xl p-0">
-            <div class="relative sm:overflow-hidden">
-                <div class="fixed inset-x-0 top-0" style="z-index:-10">
-                    {{ $homepageImage := "" }}
-                    {{ with .Site.Params.defaultBackgroundImage }}{{ $homepageImage = resources.Get . }}{{ end }}
-                    {{ with .Site.Params.homepage.homepageImage }}{{ $homepageImage = resources.Get . }}{{ end }}
-                    {{ if not (eq $homepageImage "") }}
-                    <img class="w-full h-[1000px] object-cover m-0 nozoom" alt="" src="{{ $homepageImage.RelPermalink }}">
-                    <div
-                        class="absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
-                    </div>
-                    <div
-                        class="opacity-60 absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
-                    </div>
-                    {{ end }}
-                </div>
-                <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8 flex flex-col items-center justify-center text-center">
-                    {{ with .Site.Author.image }}
-                    {{ $authorImage := resources.Get . }}
-                    {{ if $authorImage }}
-                    {{ $authorImage := $authorImage.Fill "288x288" }}
-                    <img class="mb-2 rounded-full h-36 w-36" width="144" height="144"
-                        alt="{{ $.Site.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
-                    {{ end }}
-                    {{ end }}
-                    <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
-                        {{ .Site.Author.name | default .Site.Title }}
-                    </h1>
-                    {{ with .Site.Author.headline }}
-                    <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
-                        {{ . | markdownify | emojify }}
-                    </h2>
-                    {{ end }}
-                    <div class="mt-1 mb-10 text-2xl">
-                        {{ with .Site.Author.links }}
-                        <div class="flex flex-wrap">
-                            {{ range $links := . }}
-                            {{ range $name, $url := $links }}
-                            <a class="px-1 hover:text-primary-400 text-primary-800 dark:text-primary-200" href="{{ $url }}" target="_blank"
-                                aria-label="{{ $name | title }}" rel="me noopener noreferrer">{{ partial
-                                "icon.html" $name }}</a>
-                            {{ end }}
-                            {{ end }}
-                        </div>
-                        {{ end }}
-                    </div>
-                    <section class="prose dark:prose-invert">{{ .Content | emojify }}</section>
-                </div>
+  <div class="relative">
+    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
+    <div class="mx-auto max-w-7xl p-0">
+      <div class="relative sm:overflow-hidden">
+        <div class="fixed inset-x-0 top-0" style="z-index: -10">
+          {{ $homepageImage := "" }} {{ with .Site.Params.defaultBackgroundImage
+          }}{{ $homepageImage = resources.Get . }}{{ end }} {{ with
+          .Site.Params.homepage.homepageImage }}{{ $homepageImage =
+          resources.Get . }}{{ end }} {{ if not (eq $homepageImage "") }}
+          <img class="w-full h-[1000px] object-cover m-0 nozoom" alt="" src="{{ $homepageImage.RelPermalink }}">
+          <div
+              class="absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-900 to-transparent mix-blend-normal">
+          </div>
+          <div
+              class="opacity-10 absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-900 to-neutral-100 dark:to-neutral-900 mix-blend-normal">
+          </div>
+          {{ end }}
+        </div>
+        <div
+          class="relative px-4 py-16 sm:px-6 sm:py-24 lg:pb-16 lg:px-8 flex flex-col items-center justify-center text-center"
+        >
+          {{ with .Site.Author.image }} {{ $authorImage := resources.Get . }} {{
+          if $authorImage }} {{ $authorImage := $authorImage.Fill "288x288" }}
+          <img class="mb-2 rounded-full h-36 w-36" width="144" height="144"
+          alt="{{ $.Site.Author.name | default " Author" }}" src="{{
+          $authorImage.RelPermalink }}" /> {{ end }} {{ end }}
+          <h1
+            class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200"
+          >
+            {{ .Site.Author.name | default .Site.Title }}
+          </h1>
+          {{ with .Site.Author.headline }}
+          <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
+            {{ . | markdownify | emojify }}
+          </h2>
+          {{ end }}
+          <div class="mt-1 mb-10 text-2xl">
+            {{ with .Site.Author.links }}
+            <div class="flex flex-wrap">
+              {{ range $links := . }} {{ range $name, $url := $links }}
+              <a
+                class="px-1 hover:text-primary-400 text-primary-800 dark:text-primary-200"
+                href="{{ $url }}"
+                target="_blank"
+                aria-label="{{ $name | title }}"
+                rel="me noopener noreferrer"
+                >{{ partial "icon.html" $name }}</a
+              >
+              {{ end }} {{ end }}
             </div>
+            {{ end }}
+          </div>
+          <section class="prose dark:prose-invert">
+            {{ .Content | emojify }}
+          </section>
         </div>
+      </div>
     </div>
+  </div>
 </article>
-<section>
-    <h2 class="mt-12 text-2xl font-extrabold">About me</h2>
-    <p class="mt-4 opacity-70">
-      In a nutshell, I'm a UX designer and web developer with over 10 years
-      working with both industry and government. If you want the backstory - I've
-      always been the person people can come to when they need help creating
-      something. I started out as an instructional designer working for <span class="font-extrabold">FIVE GUYS</span>
-      (yes, the burger place) and eventually found my way into working in UX
-      design and web development.
-    </p>
-  </section>
-  <section>
-    <h2 class="mt-12 text-2xl font-extrabold mb-2">My Design Approach</h2>
-    <div class="grid gap-8 lg:grid-cols-2">
-      <div class="mt-6 flex items-start">
-        <div
-          class="mr-4 flex h-12 w-12 flex-shrink-0 flex-col justify-center rounded-md bg-primary-300 dark:bg-neutral-600 text-center text-2xl font-bold"
-        >
-          1
-        </div>
-        <div class="flex-shrink">
-          <p class="mb-1 text-xl font-bold">Research</p>
-          <p class="opacity-70">
-            Good designers don't talk much, they ask questions and listen. You'll see me asking a lot of questions so I can understand what the real need is.
-          </p>
-        </div>
+<section class="my-12">
+  <h2 class="text-2xl font-extrabold my-4">About me</h2>
+  <p class="my-4 text-neutral-300">
+    In a nutshell, I'm a UX designer and web developer with over 10 years
+    working with both industry and government. If you want the backstory - I've
+    always been the person people can come to when they need help creating
+    something. I started out as an instructional designer working for
+    <span class="font-extrabold">FIVE GUYS</span>
+    (yes, the burger place) and eventually found my way into working in UX
+    design and web development.
+  </p>
+</section>
+<section class="my-12">
+  <h2 class="text-2xl font-extrabold my-4">My Design Approach</h2>
+  <div class="grid gap-8 lg:grid-cols-2">
+    <div class="my-4 flex items-start">
+      <div
+        class="mr-4 flex h-12 w-12 flex-shrink-0 flex-col justify-center rounded-md bg-primary-300 dark:bg-primary-700 text-center text-2xl font-bold"
+      >
+        1
       </div>
-      <div class="mt-6 flex items-start">
-        <div
-          class="mr-4 flex h-12 w-12 flex-shrink-0 flex-col justify-center rounded-md bg-neutral-300 dark:bg-neutral-600 text-center text-2xl font-bold"
-        >
-          2
-        </div>
-        <div class="flex-shrink">
-          <p class="mb-1 text-xl font-bold">Design</p>
-          <p class="opacity-70">
-            Rather than jumping straight to code, let's just draw a picture first to make sure we're on the same page. 
-          </p>
-        </div>
-      </div>
-      <div class="mt-6 flex items-start">
-        <div
-          class="mr-4 flex h-12 w-12 flex-shrink-0 flex-col justify-center rounded-md bg-neutral-300 dark:bg-neutral-600 text-center text-2xl font-bold"
-        >
-          3
-        </div>
-        <div class="flex-shrink">
-          <p class="mb-1 text-xl font-bold">Build</p>
-          <p class="opacity-70">
-            This is where I put it all together - either writing the code myself
-            or creating stories and working with an engineering team. 
-          </p>
-        </div>
-      </div>
-      <div class="mt-6 flex items-start">
-        <div
-          class="mr-4 flex h-12 w-12 flex-shrink-0 flex-col justify-center rounded-md bg-neutral-300 dark:bg-neutral-600 text-center text-2xl font-bold"
-        >
-          ...
-        </div>
-        <div class="flex-shrink">
-          <p class="mb-1 text-xl font-bold">aaaaand repeat</p>
-          <p class="opacity-70">
-            Now let's watch what happens. Let's monitor user behavior and see how we can continue to improve. This can kick off another design cycle.
-          </p>
-        </div>
+      <div class="flex-shrink">
+        <p class="mb-1 text-xl font-bold">Research</p>
+        <p class="text-neutral-300">
+          Good designers don't talk much, they ask questions and listen. You'll
+          see me asking a lot of questions so I can understand what the real
+          need is.
+        </p>
       </div>
     </div>
-  </section>
-<section>
-    {{ partial "recent-articles/main.html" . }}
+    <div class="my-4 flex items-start">
+      <div
+        class="mr-4 flex h-12 w-12 flex-shrink-0 flex-col justify-center rounded-md bg-neutral-300 dark:bg-primary-700 text-center text-2xl font-bold"
+      >
+        2
+      </div>
+      <div class="flex-shrink">
+        <p class="mb-1 text-xl font-bold">Design</p>
+        <p class="text-neutral-300">
+          Rather than jumping straight to code, let's just draw a picture first
+          to make sure we're on the same page.
+        </p>
+      </div>
+    </div>
+    <div class="my-4 flex items-start">
+      <div
+        class="mr-4 flex h-12 w-12 flex-shrink-0 flex-col justify-center rounded-md bg-neutral-300 dark:bg-primary-700 text-center text-2xl font-bold"
+      >
+        3
+      </div>
+      <div class="flex-shrink">
+        <p class="mb-1 text-xl font-bold">Build</p>
+        <p class="text-neutral-300">
+          This is where I put it all together - either writing the code myself
+          or creating stories and working with an engineering team.
+        </p>
+      </div>
+    </div>
+    <div class="my-4 flex items-start">
+      <div
+        class="mr-4 flex h-12 w-12 flex-shrink-0 flex-col justify-center rounded-md bg-neutral-300 dark:bg-primary-700 text-center text-2xl font-bold"
+      >
+        ...
+      </div>
+      <div class="flex-shrink">
+        <p class="mb-1 text-xl font-bold">aaaaand repeat</p>
+        <p class="text-neutral-300">
+          Now let's watch what happens. Let's monitor user behavior and see how
+          we can continue to improve. This can kick off another design cycle.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
+<section class="my-12">
+  <h2 class="my-4 text-2xl font-extrabold">The things I value...</h2>
+  <div class="grid grid-cols-3 grid-rows-2 gap-4">
+   
+    <div class="rounded-md border border-primary-600 p-6">
+      <p class="mb-4 text-xl font-semibold">simplicity</p>
+      <span class="my-1 block text-sm text-neutral-400">noun</span>
+      <span class="my-1 block text-sm text-neutral-300"
+        >the quality or condition of being easy to understand or do.</span
+      >
+    </div>
+    <div class="rounded-md border border-primary-600 p-6">
+      <p class="mb-4 text-xl font-semibold">collaboration</p>
+      <span class="my-1 block text-sm text-neutral-400">noun</span>
+      <span class="my-1 block text-sm text-neutral-300"
+        >the action of working with someone to produce or create
+        something.</span
+      >
+    </div>
+    <div class="rounded-md border border-primary-600 p-6 break-before-column">
+      <p class="mb-4 text-xl font-semibold">feedback</p>
+      <span class="my-1 block text-sm text-neutral-400">noun</span>
+      <span class="my-1 block text-sm text-neutral-300"
+        >information about reactions to a product, a person's performance of a
+        task, etc. which is used as a basis for improvement.</span
+      >
+    </div>
+    <div class="rounded-md border border-primary-600 p-6">
+      <p class="mb-4 text-xl font-semibold">cleverness</p>
+      <span class="block text-sm text-neutral-400">noun</span>
+      <span class="my-1 block text-sm text-neutral-300"
+        >the quality of being clever; ingenuity or shrewdness.</span
+      >
+    </div>
+    <div class="rounded-md border border-primary-600 p-6 break-before-column">
+      <p class="mb-4 text-xl font-semibold">getting things done</p>
+      <span class="my-1 block text-sm text-neutral-400">phrase</span>
+      <span class="my-1 block text-sm text-neutral-300"
+        >taking an idea and implementing it in an efficient manner</span
+      >
+    </div>
+  </div>
+</section>
+<section>{{ partial "recent-articles/main.html" . }}</section>
 {{ if .Site.Params.homepage.layoutBackgroundBlur | default false }}
-<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<div
+  id="background-blur"
+  class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"
+></div>
 <script>
-    window.addEventListener('scroll', function (e) {
-        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var background_blur = document.getElementById('background-blur');
-        background_blur.style.opacity = (scroll / 300)
-    });
+  window.addEventListener('scroll', function (e) {
+    var scroll =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    var background_blur = document.getElementById('background-blur');
+    background_blur.style.opacity = scroll / 300;
+  });
 </script>
 {{ end }}
