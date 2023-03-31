@@ -46,8 +46,8 @@ disableImageOptimization = false
 
 [article]
   showDate = true
-  showViews = false
-  showLikes = false
+  showViews = true
+  showLikes = true
   showDateUpdated = false
   showAuthor = true
   showHero = false
@@ -63,11 +63,11 @@ disableImageOptimization = false
   showHeadingAnchors = true
   showPagination = true
   invertPagination = false
-  showReadingTime = true
+  showReadingTime = false
   showTableOfContents = false
   showTaxonomies = true
   showAuthorsBadges = false
-  showWordCount = true
+  showWordCount = false
   showSummary = true
   # sharingLinks = [ "linkedin", "twitter", "reddit", "pinterest", "facebook", "email"]
 
@@ -78,8 +78,8 @@ disableImageOptimization = false
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showSummary = false
-  showViews = false
-  showLikes = false
+  showViews = true
+  showLikes = true
   showTableOfContents = false
   showCards = false
   groupByYear = true
@@ -95,8 +95,8 @@ disableImageOptimization = false
   showHero = false
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   showBreadcrumbs = false
-  showViews = false
-  showLikes = false
+  showViews = true
+  showLikes = true
   showTableOfContents = false
   cardView = false
 
@@ -104,21 +104,21 @@ disableImageOptimization = false
   showHero = false
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   showBreadcrumbs = false
-  showViews = false
-  showLikes = false
+  showViews = true
+  showLikes = true
   showTableOfContents = true
   groupByYear = false
   cardView = false
   cardViewScreenWidth = false
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
+  apiKey = "AIzaSyBwhOUl351nKUeElGelAxl92PvnLqNuyL0"
+  authDomain = "hugo-portfolio-dc921.firebaseapp.com"
+  projectId = "hugo-portfolio-dc921"
+  storageBucket = "hugo-portfolio-dc921.appspot.com"
+  messagingSenderId = "41802024899"
+  appId = "1:41802024899:web:9a25aa6ebe566b82171f76"
+  measurementId = "G-8PXYH76GC9"
 
 [fathomAnalytics]
   # site = "ABC12345"
